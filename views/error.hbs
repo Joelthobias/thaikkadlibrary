@@ -1,3 +1,30 @@
-<h1>{{message}}</h1>
+{{!-- <h1>{{message}}</h1>
 <h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<pre>{{error.stack}}</pre> --}}
+
+<h4 id="ls"></h4>
+<h1 align="center">
+    This page is under construction
+</h1>
+<div align="center" class="gohome">
+    <img src="/images/uc.jpeg" alt="" srcset="">
+        <a href="/" style="text-align: center;">Go Back to Home</a>
+</div>
+<script>
+    let loc=window.location.pathname
+    document.getElementById("ls").innerHTML=" you are at "+'<b>' +loc+ '</b>' 
+
+</script>
+<style>
+    *{
+        text-align: center;
+        
+    }
+    img{
+        width: 250px;
+    }
+.navbar-nav , .back , .sticky-footer , .navbar{
+
+        display: none;
+    }
+</style>

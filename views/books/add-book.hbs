@@ -1,0 +1,168 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <select class="form-select" aria-label="Default select example">
+                    <option selected>Select Catagory</option>
+                    <option value="U">U ഉപന്യാസം</option>
+                    <option value="N">N നോവൽ</option>
+                    <option value="DN">DN ഡിക്ടിവ് നോവൽ</option>
+                    <option value="C">C ചെറുകഥ</option>
+                    <option value="B">B ബാലസാഹിത്യം</option>
+                    <option value="D">D നാടകം</option>
+                    <option value="E">E ഇംഗ്ലീഷ്</option>
+                    <option value="H">H ഹിന്ദി</option>
+                    <option value="S">S സംസ്ക്യതം</option>
+                    <option value="P">P പദ്യം</option>
+                    </select>
+                </div>            
+            <form action="/add-book" method="POST"  enctype="multipart/form-data" role="form" >
+                {{!-- <legend>Add Book</legend> --}}
+                <input type="hidden" name="id" value="{{counts}}">
+                <h1 class="h3 mb-0 text-gray-800 pb-3" >Add Book</h1>
+                <div class="row">
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="bk_name">Book Name</label>
+                    <input type="text" class="form-control" name="bk_name" id="bk_name" placeholder="Book Name">
+                </div>
+
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="au_name">Author name</label>
+                    <input type="text" class="form-control" name="au_name" id="au_name" placeholder="Author Name">
+                </div>
+
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="cat">category</label>
+                    <input type="text" class="form-control" name="cat" id="cat" placeholder="category">
+                </div>    
+
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="lg">Language</label>
+                    <input type="text" class="form-control" name="lg" id="lg" placeholder="Language">
+                </div>
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="dop">Date of Publishing</label>
+                    <input type="date" class="form-control" name="dop" id="dop" placeholder="Date of Publishing">
+                </div>
+   
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="nop">Number of Pages</label>
+                    <input type="text" class="form-control" name="nop" id="nop" placeholder="Number of Pages">
+                </div>    
+
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="price">Price</label>
+                    <input type="text" class="form-control" name="price" id="price" placeholder="Price">
+                </div>
+
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="pub">Publishers</label>
+                    <input type="text" class="form-control" name="pub" id="pub" placeholder="Publishers">
+                </div>
+
+                <div class="form-group col-12 col-sm-6 pt-4 col-md-4">
+                    <input type="file" name="img" id="img" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple="">
+					<label for="img">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                        </svg> 
+                        <span>Choose a image…</span>
+                    </label>
+                </div>                
+
+                </div>
+                <div class=" row">
+                    <button type="submit" class="col-4 col-md-2 ml-auto mr-2 btn btn-primary">Submit</button>
+                    <button type="reset" class="col-4 col-md-2  btn btn-outline-danger">Reset &nbsp;</button>                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <style>
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        .inputfile + label {
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            padding: 0.625rem 1.25rem;
+        }
+        .inputfile + label svg {
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            fill: #6e707e;
+            margin-top: -0.25em;
+            margin-right: 0.25em;
+        }
+        .inputfile + label {
+            color: #6e707e;
+            border: 1px solid #d1d3e2;
+        }   
+        .form-select {
+	display: block;
+	width: 100%;
+	padding: .375rem 2.25rem .375rem .75rem;
+	-moz-padding-start: calc(0.75rem - 3px);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 16px 12px;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}     
+    </style>
+    <script>
+        'use strict';;
+        (function (document, window, index) {
+            var inputs = document.querySelectorAll('.inputfile');
+            Array.prototype.forEach.call(inputs, function (input) {
+                var label = input.nextElementSibling,
+                    labelVal = label.innerHTML;
+
+                input.addEventListener('change', function (e) {
+                    var fileName = '';
+                    if (this.files && this.files.length > 1) 
+                        fileName = (this.getAttribute('data-multiple-caption') || '').replace('{count}', this.files.length);
+                    else 
+                        fileName = e.target.value.split('\\').pop();
+                    
+
+                    if (fileName) 
+                        label.querySelector('span').innerHTML = fileName;
+                    else 
+                        label.innerHTML = labelVal;
+                    
+                });
+
+                // Firefox bug fix
+                input.addEventListener('focus', function () {
+                    input.classList.add('has-focus');
+                });
+                input.addEventListener('blur', function () {
+                    input.classList.remove('has-focus');
+                });
+            });
+        }(document, window, 0));
+
+</script>
