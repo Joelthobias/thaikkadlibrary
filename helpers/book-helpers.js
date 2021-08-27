@@ -1,6 +1,6 @@
 
 var db=require('../config/connection')
-var ObjectId = require("mongodb").ObjectID;
+var objectId = require("mongodb").ObjectID;
 module.exports={
     addbook:(book,callback)=>{
         book.id=parseInt(book.id)
@@ -22,24 +22,16 @@ module.exports={
     viewbook:(id)=>{
         return new Promise(async(resolve,reject)=>{
             id=parseInt(id)
-            let book=await db.get().collection('book').findOne({id:id})
+            let book=await db.get().collection('book').findOne({bk_id:id})
             resolve(book)
         })
-    },
-    deletebook:(id)=>{
-        return new Promise(async(resolve,reject)=>{
-            id=parseInt(id)
-            db.get().collection('book').deleteOne({id:id}).then(()=>{
-                resolve(true)
-            })
-        })        
     },
     updatebook: (id, book) => {
     // let price=parseInt(pro.price)
     book.price=parseInt(book.price)
     return new Promise((resolve, reject) => {
       db.get()
-        .collection('book').updateOne({ _id:ObjectId(id) },
+        .collection('book').updateOne({ _id:objectId(id) },
           {
             $set: {
               bk_name: book.bk_name,
@@ -65,6 +57,16 @@ module.exports={
         let cart = 0;
         cart = await db.get().collection('book').countDocuments();
         console.log(cart);
+        cart=cart+1000
+        resolve(cart)
+        });
+  },
+      getgencount: (gen) => {
+        return new Promise(async (resolve, reject) => {
+        let cart = 0;
+        cart = await db.get().collection('book').countDocuments({cat:gen});
+        console.log(cart);
+        cart=cart+1001
         resolve(cart)
         });
   },

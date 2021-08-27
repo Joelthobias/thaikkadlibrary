@@ -1,0 +1,43 @@
+<div class="row p-4">
+    <table class="table table-borderless  table-hover table-responsive">
+    <thead>
+        <tr>
+        <th class="d-md-bl" scope="col">#</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author Name</th>
+        <th  class="d-md-bl" scope="col">Price</th>
+        <th class="d-md-bl" scope="col">Date of Publiction</th>
+        <th class="d-s-bl" scope="col">Language</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each data}}
+        <tr onclick="window.location.href='/view-book/{{this.bk_id}}'">
+            <th  class="d-md-bl" scope="row">{{this.bk_id}}-{{this.cat}}-{{this.gen_id}} </th>
+            <td >{{this.bk_name}}</td>
+            <td>{{this.au_name}}</td>
+            <td class="d-md-bl">{{this.price}}</td>
+            <td class="d-md-bl">{{this.dop}}</td>
+            <td class="d-s-bl">{{this.lg}} </td>
+        </tr>
+        {{/each}}
+    </tbody>
+    </table>    
+</div>
+
+<style>
+    .table-responsive {
+    display: inline-table;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+@media(max-width:700px){
+    .table-responsive {
+    display: block;
+    width: 134%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+}
+</style>

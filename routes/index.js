@@ -14,11 +14,12 @@ router.get('/add-book',(req,res)=>{
     res.render('books/select')
 })
 
-router.get('/find-gen-count',(req,res)=>{
+router.get('/find-gen-count',async(req,res)=>{
   let gen=req.query.coutn
-  let gencount=1000
-  let bkcount =1000
-  bkcount=bookHelpers.getbookcount().then(response)
+  let gencount=1001
+  let bkcount =1001
+  bkcount=await bookHelpers.getbookcount()
+  gencount=await bookHelpers.getgencount(gen)
    res.render('books/add-book',{gencount,gen,bkcount})
 })
 
@@ -26,12 +27,19 @@ router.post('/add-book',(req,res)=>{
   let data =req.body
 
   bookHelpers.addbook(data).then((result)=>{
-    res.send(data)
+    res.redirect('/view-books')
   })
 })
 router.get('/view-books',(req,res)=>{
-  bookHelpers.viewbooks().then((result)=>{
-    res.render('books/view-book')
+  bookHelpers.viewbooks().then((data)=>{
+    console.log(data);
+    res.render('books/view-books',{data})
+  })
+})
+router.get('/view-book/:id',(req,res)=>{
+  let id=req.params.id
+  bookHelpers.viewbook(id).then((result)=>{
+    res.render('books/view-book',{result})
   })
 })
 module.exports = router;

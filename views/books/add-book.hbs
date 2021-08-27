@@ -6,13 +6,13 @@
             
             <form id="form" action="/add-book" method="POST"   enctype="multipart/form-data" role="form" >
                 {{!-- <legend>Add Book</legend> --}}
-                <input style="border: none;background-color: #e1e1e1;" readonly name="id" id="ids" value="1000-{{gen}}-{{gencount}}">
+                <input style="border: none;background-color: #e1e1e1;" disabled  id="ids" value="{{bkcount}}-{{gen}}-{{gencount}}">
                 <style>
                     #ids:focus-visible {
                         outline: none;
                     }
                 </style>
-                <input type="hidden" name="bk_id" value="1000">
+                <input type="hidden" name="bk_id" value="{{bkcount}}">
                 <input type="hidden" name="gen_id" value="{{gencount}}">
                 <div class="row">
                 <div class="form-group col-12 col-sm-6 col-md-4">
