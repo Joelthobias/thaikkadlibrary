@@ -1,0 +1,70 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h1 class="h3 mb-0 text-gray-800 pb-3" >Add Book</h1>                    
+            <form action="/find-gen-count/" id="uform" class="col-12" method="get">
+                <div class="row">
+                    <div class="form-group col-12 col-sm-6 col-md-9">
+                        <select id="mem" class="form-select" name="coutn" required="required" aria-label="Default select example">
+                            <option selected="selected">Select Catagory</option>
+                            <option value="U">U ഉപന്യാസം</option>
+                            <option value="N">N നോവൽ</option>
+                            <option value="DN">DN ഡിക്ടിവ് നോവൽ</option>
+                            <option value="C">C ചെറുകഥ</option>
+                            <option value="B">B ബാലസാഹിത്യം</option>
+                            <option value="D">D നാടകം</option>
+                            <option value="E">E ഇംഗ്ലീഷ്</option>
+                            <option value="H">H ഹിന്ദി</option>
+                            <option value="S">S സംസ്ക്യതം</option>
+                            <option value="P">P പദ്യം</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit"  class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form> 
+        </div>
+    </div>
+</div>
+
+
+<style>
+.form-select {
+	display: block;
+	width: 100%;
+	padding: .375rem 2.25rem .375rem .75rem;
+	-moz-padding-start: calc(0.75rem - 3px);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #212529;
+	background-color: #fff;
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+	background-repeat: no-repeat;
+	background-position: right .75rem center;
+	background-size: 16px 12px;
+	border: 1px solid #ced4da;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}     
+</style>
+<script>
+/*    $("#uform").submit((e) => {   
+    e.preventDefault()
+        var id=document.getElementById('mem').value
+        console.log(id)
+        $.ajax({
+            url: "/find-gen-count/" + id,
+            method: "get",
+            success: function (response) {
+                window.location=
+                count.textContent += '-' + id
+            }
+        })
+    })*/
+</script> 
