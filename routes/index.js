@@ -42,4 +42,7 @@ router.get('/view-book/:id',(req,res)=>{
     res.render('books/view-book',{result})
   })
 })
+router.get('/search-book',(req,res)=>{
+  res.render('books/searchbook')
+})
 module.exports = router;
