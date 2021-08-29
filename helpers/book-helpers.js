@@ -26,6 +26,15 @@ module.exports={
             resolve(book)
         })
     },
+    viewgen:(id)=>{
+        return new Promise(async(resolve,reject)=>{
+            
+            db.get().collection('book').find({cat:id}).toArray().then((book)=>{
+            resolve(book)
+            })
+
+        })
+    },
     updatebook: (id, book) => {
     // let price=parseInt(pro.price)
     book.price=parseInt(book.price)
@@ -57,7 +66,7 @@ module.exports={
         let cart = 0;
         cart = await db.get().collection('book').countDocuments();
         console.log(cart);
-        cart=cart+1000
+        cart=cart+1001
         resolve(cart)
         });
   },

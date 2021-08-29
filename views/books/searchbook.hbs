@@ -11,14 +11,21 @@
     <div class="row container">
         <h5 class="col-12 m-4">Search by Gener </h5>
         <div class="input-group col-9 mb-3">
-            <select class="custom-select" id="inputGroupSelect02">
+            <select id="select" class="custom-select" id="inputGroupSelect02">
                 <option selected="selected">Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="U">U ഉപന്യാസം</option>
+                <option value="N">N നോവൽ</option>
+                <option value="DN">DN ഡിക്ടിവ് നോവൽ</option>
+                <option value="C">C ചെറുകഥ</option>
+                <option value="B">B ബാലസാഹിത്യം</option>
+                <option value="D">D നാടകം</option>
+                <option value="E">E ഇംഗ്ലീഷ്</option>
+                <option value="H">H ഹിന്ദി</option>
+                <option value="S">S സംസ്ക്യതം</option>
+                <option value="P">P പദ്യം</option>
             </select>
             <div class="input-group-append">
-                <label class="input-group-text" for="inputGroupSelect02">Search</label>
+                <label onclick="serachgen()" class="input-group-text" for="inputGroupSelect02">Search</label>
             </div>
         </div>
 
@@ -31,5 +38,8 @@
         
         window.location.href='/view-book/'+id
     }
-    
+    var serachgen=()=>{
+        let id=document.getElementById('select').value
+        window.location.href='/search-gen/'+id
+    }
 </script>
