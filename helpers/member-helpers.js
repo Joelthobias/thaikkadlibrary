@@ -38,6 +38,7 @@ module.exports={
         return new Promise(async (resolve, reject) => {
         let cart = 0;
         cart = await db.get().collection('members').countDocuments();
+        cart = cart + 101
         console.log(cart);
         resolve(cart)
         });

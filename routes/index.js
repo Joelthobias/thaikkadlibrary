@@ -65,4 +65,59 @@ router.get('/search-book',(req,res)=>{
    // ROUTS RELATED TO MEMBERS 
 /*----------------------------------------------------------*/
 
+// Route for member create
+router.get('/add-membs',(req,res)=>{
+  memberHelpers.getmembercount().then((counts) => {
+    res.render('member/add-member',{counts})
+  })
+})
+    // subroute for adding books
+    router.post('/add-membs',(req,res)=>{
+      let data=req.body
+      memberHelpers.addmember(data).then(()=>{
+        res.redirect('/add-membs')
+      })
+    })
+
+// Route for listing all members
+router.get('/view-membs',(req,res)=>{
+  memberHelpers.viewmembers().then((members)=>{
+    res.render('member/view-members',{members})
+  })
+})
+
+// Route for viewing single member details
+router.get('/view-member/:id',(req,res)=>{
+  let id =req.params.id
+  memberHelpers.viewmember(id).then((member)=>{
+    bookHelpers.findrend(id).then((result)=>{
+      res.render('member/view-member',{member,result})
+    })
+  })
+}) 
+
+// route for Rending book
+router.get('/rend-book/:id',(req,res)=>{
+  let id=req.params.id
+  bookHelpers.viewbook(id).then((result)=>{
+    res.render('books/rend-book',{result})
+  })
+
+})
+    router.post('/rend-book',(req,res)=>{
+      let data=req.body
+      bookHelpers.rendbook(data).then(()=>{ 
+        let loc=data.mem_id
+        let ads='/view-member/'+loc
+        res.redirect(ads)
+      })
+    })
+// get member details
+router.get('/get-member/:id',(req,res)=>{
+  let id=req.params.id
+  
+  memberHelpers.view(id).then((member)=>{
+    res.json({member})
+  })
+})
 module.exports = router;

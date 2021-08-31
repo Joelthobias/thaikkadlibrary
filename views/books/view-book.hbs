@@ -1,6 +1,17 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
+            <input type="text" id="ids" style="border: none;background-color: #e1e1e1;" disabled value="{{result.bk_id}}-{{result.cat}}-{{result.gen_id}}">
+                <style>
+                    #ids:focus-visible {
+                        outline: none;
+                    }
+                    #ids{
+                        font-size: 1.5rem;
+                        width: 30%;
+                        text-align: centerf;
+                    }
+                </style>            
             <div class="cover">
                 <img src="data:image/png;base64,{{result.img}}" alt="" class="cen img-fluid">
             <div class="row d-none d-md-flex d-lg-none m-3">

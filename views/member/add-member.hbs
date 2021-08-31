@@ -15,16 +15,30 @@
                         <div class="form-group row">
                             <label for="rb" class="col-sm-2 col-form-label">Recommented by</label>
                             <div class="col-sm-10" style="display: flex;">
-                                <input type="text" required minlength="3" maxlength="3"  class="form-control col-7" id="rb" name="rb" placeholder="name">
+                                <input type="text" required minlength="3"   class="form-control col-7" id="rb" name="rb" placeholder="name">
                                 <input type="number" required minlength="3" maxlength="3"  class="form-control col-4 ml-3 ml-sm-auto" id="rb" name="rb_id" placeholder="id">
                             </div>
                         </div>
                         <div class="form-group row">
                            <label for="doa" class="col-sm-2 col-form-label">Date of Admission</label>
                             <div class="col-sm-10">
-                                <input type="text" required class="form-control" id="doa" name="doa" placeholder="Date of Admission">
+                                <input type="date"  required class="form-control" id="doa" value="30/08/2021" name="doa" >
                             </div>
                         </div>
+                        {{!-- <script>
+                            /*let d =new Date()
+                            let D=d.getDate()
+                            let M=d.getMonth()+1
+                            let Y=d.getFullYear()
+                            let dt=D+'/'+M+'/'+Y
+                            console.log(D+'/'+M+'/'+Y)
+                            let id=document.getElementById('doa')
+                            id.innerHTML=dt*/
+                            $('#doa').doa({
+                                "setDate":new Date(),
+                                "autoclose":true
+                            })
+                        </script> --}}
                         <div class="form-group row">
                             <label for="age" class="col-2 col-form-label">Age</label>
                             <div class="col-3 ">
