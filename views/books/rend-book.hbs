@@ -1,6 +1,6 @@
 <section class="container">
 <h3>
-    #00001
+    {{thismonthcount}}/{{month}}-{{yer}}
 </h3>
 
 
@@ -68,6 +68,7 @@
                 </tbody>
             </table>
             <form action="/rend-book" method="post">
+            <input type="text" value="{{thismonthcount}}/{{month}}-{{yer}}" name="id" class="no">
             <input type="text" value="" id="aaaa" name="mem_id" class="no">
             <input type="text" value="{{result.id}}" name="bk_id" class="no">
             <input type="text" value="{{result.au_name}}" name="au_name" class="no">
@@ -127,7 +128,7 @@ $("#myform").submit((e)=>{
             document.getElementById('b').value=response.member.name;
             document.getElementById('c').value=response.member.mob;
             let date=new Date
-            let mm=date.getMonth()
+            let mm=date.getMonth() +1
             let dd=date.getDate()
             let yy=date.getFullYear()
             let Dd=dd +"-" + mm +"-"  + yy

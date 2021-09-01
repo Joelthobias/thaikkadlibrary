@@ -97,10 +97,19 @@ router.get('/view-member/:id',(req,res)=>{
 }) 
 
 // route for Rending book
-router.get('/rend-book/:id',(req,res)=>{
+router.get('/rend-book/:id',async(req,res)=>{
   let id=req.params.id
+  let date=new Date()
+  let month=date.getMonth() +1
+  let yer=date.getFullYear()
+  if(month<=9){
+    month='0'+month 
+  }
+  thismonthcount=await bookHelpers.findthismonth(month,yer)
+  console.log(thismonthcount);
   bookHelpers.viewbook(id).then((result)=>{
-    res.render('books/rend-book',{result})
+    
+    res.render('books/rend-book',{result,month,yer,thismonthcount})
   })
 
 })
@@ -118,6 +127,25 @@ router.get('/get-member/:id',(req,res)=>{
   
   memberHelpers.view(id).then((member)=>{
     res.json({member})
+  })
+})
+router.get('/rend',(req,res)=>{
+  memberHelpers.getallrend().then((rend)=>{
+    // bookHelpers.viewbook()
+    // let bg='white'
+    // if(rend.status==='given'){
+    //    bg='red'
+    // }
+    // else{
+    //    bg='green'
+    // }
+    res.render('member/rend',{rend})
+  })
+})
+router.get('/return-book/:id',(req,res)=>{
+  let id=req.params.id
+  memberHelpers.returnbook(id).then(()=>{
+    res.redirect('/rend')
   })
 })
 module.exports = router;

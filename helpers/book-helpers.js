@@ -104,5 +104,15 @@ module.exports={
       resolve(rend)
       
     })
-  }      
+  },
+  findthismonth:(m,y)=>{
+    return new Promise(async(resolve,reject)=>{
+      let count=await db.get().collection('rendbook').countDocuments({month:m,yer:y})
+      count=count+1
+      if(count<=9){
+        count='0'+count
+      }
+      resolve(count)
+    })
+  }
 }
