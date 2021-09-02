@@ -82,14 +82,6 @@ module.exports={
   rendbook:(body)=>{
     body.yy=parseInt(body.yy)
     body.status=false
-    if(body.mm<10){
-      body.mm='0'+body.mm
-      
-
-    }
-    body.sl=body.yy+''+ body.mm +'' +'01'
-    body.sl=parseInt(body.sl)
-
     return new Promise ((resolve,reject)=>{
       db.get().collection('rendbook').insertOne(body).then(()=>{
       console.log(body);
@@ -107,7 +99,7 @@ module.exports={
   },
   findthismonth:(m,y)=>{
     return new Promise(async(resolve,reject)=>{
-      let count=await db.get().collection('rendbook').countDocuments({month:m,yer:y})
+      let count=await db.get().collection('rendbook').countDocuments({mm:m,yy:y})
       count=count+1
       if(count<=9){
         count='0'+count

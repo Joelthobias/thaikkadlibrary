@@ -1,8 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <input id="ids" style="border: none;background-color: #e1e1e1;" readonly name="id" value="#{{counts}}">
             <form action="/add-membs" method="POST"  role="form"  >
+                <input id="ids" style="border: none;background-color: #e1e1e1;" value="#{{counts}}">
+                <input hidden name="id" value="{{counts}}">
                 <h1 class="h3 mb-0 text-gray-800 pb-3" >Add Member  <i class="fas fa-fw fa-user"></i></h1>
                 <div class="row mb-3">
                 <style>
