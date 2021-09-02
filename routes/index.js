@@ -35,18 +35,18 @@ router.get('/', async(req, res)=>{
 
 // ADD BOOK
 router.get('/add-book',(req,res)=>{        
-    res.render('books/select')
+    res.render('books/add-book')
 })
 
 // SUB ROUTS FOR ADDING BOOK
-    router.get('/find-gen-count',async(req,res)=>{
-      let gen=req.query.coutn
+    // router.get('/find-gen-count',async(req,res)=>{
+    //   let gen=req.query.coutn
       
       
-      bkcount=await bookHelpers.getbookcount()
-      gencount=await bookHelpers.getgencount(gen)
-      res.render('books/add-book',{gencount,gen,bkcount})
-    })
+    //   bkcount=await bookHelpers.getbookcount()
+    //   gencount=await bookHelpers.getgencount(gen)
+    //   res.render('books/add-book',{gencount,gen,bkcount})
+    // })
 
     router.post('/add-book',(req,res)=>{
       let data =req.body
