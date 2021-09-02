@@ -6,8 +6,28 @@ const bookHelpers = require('../helpers/book-helpers');
 const memberHelpers = require('../helpers/member-helpers')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', async(req, res)=>{
+  u=await bookHelpers.getgencount('U')
+  u=u-1001
+  n=await bookHelpers.getgencount('N')
+  n=n-1001
+  dn=await bookHelpers.getgencount('DN')
+  dn=dn-1001
+  c=await bookHelpers.getgencount('C')
+  c=c-1001
+  b=await bookHelpers.getgencount('B')
+  b=b-1001
+  d=await bookHelpers.getgencount('D')
+  d=d-1001
+  e=await bookHelpers.getgencount('E')
+  e=e-1001
+  h=await bookHelpers.getgencount('H')
+  h=h-1001
+  s=await bookHelpers.getgencount('S')
+  s=s-1001
+  p=await bookHelpers.getgencount('P')
+  p=p-1001
+  res.render('index', {u,n,dn,c,b,d,e,h,s,p});
 });
 
 // ROUTS RELATED TO BOOKS
