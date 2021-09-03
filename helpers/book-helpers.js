@@ -5,7 +5,6 @@ module.exports={
     addbook:(book,callback)=>{
         book.id=parseInt(book.id)
         book.price=parseInt(book.price)
-        book.gen_id=parseInt(book.gen_id)
         book.bk_id=parseInt(book.bk_id)
 
         return new Promise(async(resolve,reject)=>{

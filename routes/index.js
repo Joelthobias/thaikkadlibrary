@@ -34,6 +34,7 @@ router.get('/', async(req, res)=>{
 /*----------------------------------------------------------*/
 
 // ADD BOOK
+<<<<<<< HEAD
 router.get('/add-book',(req,res)=>{        
     res.render('books/add-book')
 })
@@ -47,6 +48,22 @@ router.get('/add-book',(req,res)=>{
     //   gencount=await bookHelpers.getgencount(gen)
     //   res.render('books/add-book',{gencount,gen,bkcount})
     // })
+=======
+router.get('/add-book',(req,res)=>{  
+
+    res.render('books/add-book')
+})
+
+// // SUB ROUTS FOR ADDING BOOK
+//     router.get('/find-gen-count',async(req,res)=>{
+//       let gen=req.query.coutn
+      
+      
+//       bkcount=await bookHelpers.getbookcount()
+//       gencount=await bookHelpers.getgencount(gen)
+//       res.render('books/add-book',{gencount,gen,bkcount})
+//     })
+>>>>>>> bug
 
     router.post('/add-book',(req,res)=>{
       let data =req.body
