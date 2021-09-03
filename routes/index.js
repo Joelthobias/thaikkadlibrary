@@ -34,7 +34,7 @@ router.get('/', async(req, res)=>{
 /*----------------------------------------------------------*/
 
 // ADD BOOK
-<<<<<<< HEAD
+
 router.get('/add-book',(req,res)=>{        
     res.render('books/add-book')
 })
@@ -48,7 +48,7 @@ router.get('/add-book',(req,res)=>{
     //   gencount=await bookHelpers.getgencount(gen)
     //   res.render('books/add-book',{gencount,gen,bkcount})
     // })
-=======
+
 router.get('/add-book',(req,res)=>{  
 
     res.render('books/add-book')
@@ -63,7 +63,7 @@ router.get('/add-book',(req,res)=>{
 //       gencount=await bookHelpers.getgencount(gen)
 //       res.render('books/add-book',{gencount,gen,bkcount})
 //     })
->>>>>>> bug
+
 
     router.post('/add-book',(req,res)=>{
       let data =req.body
