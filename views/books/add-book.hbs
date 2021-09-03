@@ -6,15 +6,23 @@
             
             <form id="form" action="/add-book" method="POST"   enctype="multipart/form-data" role="form" >
                 {{!-- <legend>Add Book</legend> --}}
-                <input style="border: none;background-color: #e1e1e1;" disabled  id="ids" value="{{bkcount}}-{{gen}}-{{gencount}}">
+                {{!-- <input style="border: none;background-color: #e1e1e1;" disabled  id="ids" value="{{bkcount}}-{{gen}}-{{gencount}}"> --}}
                 <style>
                     #ids:focus-visible {
                         outline: none;
                     }
                 </style>
-                <input type="hidden" name="bk_id" value="{{bkcount}}">
-                <input type="hidden" name="gen_id" value="{{gencount}}">
+                {{!-- <input type="hidden" name="bk_id" value="{{bkcount}}">
+                <input type="hidden" name="gen_id" value="{{gencount}}"> --}}
                 <div class="row">
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="bk_id">Book id</label>
+                    <input type="text" class="form-control" name="bk_id" id="bk_id" placeholder="Book id">
+                </div>
+                <div class="form-group col-12 col-sm-6 col-md-4">
+                    <label for="gen_id">gen id</label>
+                    <input type="text" class="form-control" name="gen_id" id="gen_id" placeholder="gen id">
+                </div>
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="bk_name">Book Name</label>
                     <input type="text" class="form-control" name="bk_name" id="bk_name" placeholder="Book Name">
@@ -27,7 +35,20 @@
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
                     <label for="cat">category</label>
-                    <input type="text" class="form-control" name="cat" id="cat" value="{{gen}}" placeholder="category">
+                    {{!-- <input type="text" class="form-control" name="cat" id="cat" value="{{gen}}" placeholder="category"> --}}
+                        <select name="cat" class="custom-select">
+                            <option selected="selected">Select Catagory</option>
+                            <option value="U">U ഉപന്യാസം</option>
+                            <option value="N">N നോവൽ</option>
+                            <option value="DN">DN ഡിക്ടിവ് നോവൽ</option>
+                            <option value="C">C ചെറുകഥ</option>
+                            <option value="B">B ബാലസാഹിത്യം</option>
+                            <option value="D">D നാടകം</option>
+                            <option value="E">E ഇംഗ്ലീഷ്</option>
+                            <option value="H">H ഹിന്ദി</option>
+                            <option value="S">S സംസ്ക്യതം</option>
+                            <option value="P">P പദ്യം</option>
+                        </select>                    
                 </div>    
 
                 <div class="form-group col-12 col-sm-6 col-md-4">
