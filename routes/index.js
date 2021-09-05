@@ -7,6 +7,8 @@ const memberHelpers = require('../helpers/member-helpers')
 
 /* GET home page. */
 router.get('/', async(req, res)=>{
+  let t=await bookHelpers.getbookcount()
+  t=t-1001
   u=await bookHelpers.getgencount('U')
   u=u-1001
   n=await bookHelpers.getgencount('N')
@@ -27,7 +29,7 @@ router.get('/', async(req, res)=>{
   s=s-1001
   p=await bookHelpers.getgencount('P')
   p=p-1001
-  res.render('index', {u,n,dn,c,b,d,e,h,s,p});
+  res.render('index', {t,u,n,dn,c,b,d,e,h,s,p});
 });
 
 // ROUTS RELATED TO BOOKS
