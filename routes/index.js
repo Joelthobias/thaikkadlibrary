@@ -101,6 +101,25 @@ router.get('/search-book',(req,res)=>{
       })
     })
 
+// Edit BOOK
+
+router.get('/edit-book/:id', async (req, res) => {
+    let id = req.params.id
+    console.log(id);
+    let result = await bookHelpers.viewbook(id)
+    res.render('books/edit-book', {result})
+
+}),
+
+  // SUB ROUTE FOR EDIT BOOK
+  router.post('/edt-book/:id',(req,res)=>{
+    let id=req.params.id
+    let data =req.body
+    bookHelpers.updatebook(id,data).then(()=>{
+      res.redirect('/view-books')
+    })
+}),
+
    // ROUTS RELATED TO MEMBERS 
 /*----------------------------------------------------------*/
 
