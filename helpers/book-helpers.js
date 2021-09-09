@@ -3,10 +3,6 @@ var db=require('../config/connection')
 var objectId = require("mongodb").ObjectID;
 module.exports={
     addbook:(book,callback)=>{
-        book.id=parseInt(book.id)
-        book.price=parseInt(book.price)
-        book.bk_id=parseInt(book.bk_id)
-
         return new Promise(async(resolve,reject)=>{
           db.get().collection("book").insertOne(book)
           resolve(true)

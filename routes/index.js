@@ -69,9 +69,9 @@ router.get('/add-book',(req,res)=>{
 
     router.post('/add-book',(req,res)=>{
       let data =req.body
-
+      console.log(data);
       bookHelpers.addbook(data).then((result)=>{
-        res.redirect('/view-books')
+        res.redirect('/add-book')
       })
     })
 // VIEW ALL BOOKS
@@ -158,6 +158,7 @@ router.get('/view-member/:id',(req,res)=>{
 router.get('/rend-book/:id',async(req,res)=>{
   let id=req.params.id
   let date=new Date()
+  let dt=date.getDate()
   let month=date.getMonth() +1
   let yer=date.getFullYear()
   if(month<=9){
@@ -167,7 +168,7 @@ router.get('/rend-book/:id',async(req,res)=>{
   console.log(thismonthcount);
   bookHelpers.viewbook(id).then((result)=>{
     
-    res.render('books/rend-book',{result,month,yer,thismonthcount})
+    res.render('books/rend-book',{result,month,yer,thismonthcount,dt})
   })
 
 })

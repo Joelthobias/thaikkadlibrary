@@ -68,6 +68,7 @@
                 </tbody>
             </table>
             <form action="/rend-book" method="post">
+            <input type="text" name="date" hidden value="{{date}}">
             <input type="text" value="{{thismonthcount}}/{{month}}-{{yer}}" name="id" class="no">
             <input type="text" value="" id="aaaa" name="mem_id" class="no">
             <input type="text" value="{{result.bk_id}}" name="bk_id" class="no">

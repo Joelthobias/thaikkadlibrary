@@ -13,9 +13,9 @@
     <tbody>
         {{#each data}}
         <tr onclick="window.location.href='/view-book/{{this.bk_id}}'">
-            <th  class="d-md-bl" scope="row">{{this.bk_id}}-{{this.cat}}-{{this.gen_id}} </th>
-            <td >{{this.bk_name}}</td>
-            <td>{{this.au_name}}</td>
+            <th  class="d-md-bl" scope="row">{{this.bk_id}} <b>/</b> {{this.gen_id}} </th>
+            <td style="font-family: 'Dyuthi', sans-serif !important;">{{this.bk_name}}</td>
+            <td style="font-family: 'Dyuthi', sans-serif !important;">{{this.au_name}}</td>
             <td class="d-md-bl">{{this.price}}</td>
             <td class="d-md-bl">{{this.dop}}</td>
             <td class="d-s-bl">{{this.lg}} </td>
