@@ -1,5 +1,5 @@
 <div class="row p-4">
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-primary text-white shadow" onclick="window.location='/view-books'">
             <div class="card-body">
                 Total Books
@@ -10,7 +10,7 @@
 </div>
 <div class="row p-4">
 
-        <div class="col-12 col-sm-t  my-4">
+        <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-success text-white shadow" onclick="window.location='/search-gen/U'">
             <div class="card-body">
                 ഉപന്യാസം (U)
@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-info text-white shadow" onclick="window.location='/search-gen/N'">
             <div class="card-body">
                 നോവൽ (N)
@@ -26,7 +26,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-warning text-white shadow" onclick="window.location='/search-gen/DN'">
             <div class="card-body">
                 <small> ഡിക്ടിവ് നോവൽ (DN)</small>
@@ -34,7 +34,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-danger text-white shadow" onclick="window.location='/search-gen/C'">
             <div class="card-body">
                 ചെറുകഥ (C)
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-secondary text-white shadow" onclick="window.location='/search-gen/B'">
             <div class="card-body">
                 <small>ബാലസാഹിത്യം (B)</small>
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-light text-black shadow" onclick="window.location='/search-gen/D'">
             <div class="card-body">
                 നാടകം (D)
@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-dark text-white shadow" onclick="window.location='/search-gen/E'">
             <div class="card-body">
                 ഇംഗ്ലീഷ് (E)
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-primary text-white shadow" onclick="window.location='/search-gen/H'">
             <div class="card-body">
                 ഹിന്ദി (H)
@@ -75,7 +75,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-primary text-white shadow" onclick="window.location='/search-gen/S'">
             <div class="card-body">
                 സംസ്ക്യതം (S)
@@ -83,7 +83,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-t  my-4">
+    <div class="col-12 col-sm-6 col-md-4 col-sm-t  my-4">
         <div class="card bg-primary text-white shadow" onclick="window.location='/search-gen/P'">
             <div class="card-body">
                 പദ്യം (P)
@@ -96,10 +96,12 @@
 
 
 <style>
-    .col-sm-t {
+    @media(min-width:1130px){
+        .col-sm-t {
         flex: 0 0 20%;
         max-width: 20%;
-    }   
+        } 
+    }
     .card-body{
         font-size: 1.4rem;
     }
