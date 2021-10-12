@@ -177,6 +177,7 @@ router.get('/rend-book/:id',async(req,res)=>{
     router.post('/rend-book',(req,res)=>{
       let data=req.body
       data.date=new Date()
+      data.status=false
       bookHelpers.rendbook(data).then(()=>{ 
         let loc=data.mem_id
         let ads='/view-member/'+loc
@@ -194,17 +195,17 @@ router.get('/get-member/:id',(req,res)=>{
 router.get('/rend',(req,res)=>{
   memberHelpers.getallrend().then((rend)=>{
     for (let index = 0; index < rend.length; index++) {
-        const element = rend[index];
-        if(element.bkdatestatus='false'){
-          console.log(element.bkdatestatus);
+        const element = rend[index]; 
+        if(element.bkdatestatus===false){ 
           let dt=element.date.getTime()
           let Cdate=new Date().getTime()   
           let Ddate= Cdate -dt
           let diff = Math.floor(Ddate / (1000 * 60 * 60 * 24))
-              if(diff >15 ){
+          console.log(diff);
+              if(diff>15 ){
                   element.bkdatestatus=true
               }
-              console.log(diff);                     
+              console.log(element.bkdatestatus);                   
         }
     }
     res.render('member/rend',{rend})

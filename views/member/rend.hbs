@@ -1,19 +1,25 @@
-<div align="center" class="cen" >
-    <p class="red"></p> 
-    <p>Given Book</p>
+<div class="container ">
+    <div class="row">
+        <div  class="cen " class="mr-1">
+            <p class="white"></p>
+            <p>Given Book (0-15 Days)</p>
+        </div>
+        <div  class="cen" class="col-3">
+            <p class="orange"></p>
+            <P>late Book (more than 15 Days) </P>
+        </div>
+        <div  class="cen" class="col-3">
+            <p class="green"></p>
+            <P>Returned Book</P>
+        </div>
+        <div align="center" class="cen">
 
+            <p class="fas fa-exchange-alt"></p>
+            <P>Click This icon For Returning The book</P>
+        </div>
+    </div>
 </div>
-<div align="center" class="cen">
 
-    <p class="green"></p>
-    <P>Returned Book</P>
-</div>
-
-<div align="center" class="cen">
-
-    <p class="fas fa-exchange-alt"></p>
-    <P>Click This icon For Returning The book</P>
-</div>
 
 
 <section  class="container">
@@ -33,10 +39,13 @@
         </thead>
         <tbody onclick="click('{{dt}}')"  style="color: #fff;">
             {{#each rend}}
-                {{#if status}}
-                <tr id="{{this._id}} " onclick="calc('{{dt}}',this)"  style="background-color: rgb(145, 207, 145);">
+                {{#if bkdatestatus}}
+                    <tr id="{{this._id}}" onclick="calc('{{dt}}',this)" style="background-color: rgb(224, 108, 30)" >
+                        {{#if status}}
+                        <tr id="{{this._id}}" onclick="calc('{{dt}}',this)" style="background-color: rgb(76, 212, 35)" >
+                        {{/if}}
                 {{else}}
-                <tr id="{{this._id}} " onclick="calc('{{dt}}',this)"   style="background-color: rgb(253, 116, 116)">
+                    <tr id="{{this._id}}" onclick="calc('{{dt}}',this)" style="background-color: #fff;color: black;" >
                 {{/if}}
                 <td>{{this.id}} </td>                
                 <td>{{this.bk_id}}</td>
@@ -71,35 +80,36 @@
         }
         
     }
-    function calc(date,ic){
-        console.log(date)
+    
+</script>
 
-        // Set the date we're counting down to
-        var countDownDate = new Date("aug 5, 2021 15:37:25").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-
-        // Get today's date and time
-        var now = new Date().getTime();
-            
-        // Find the distance between now and the count down date
-        var distance = now - countDownDate;
-            
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        
-            
-        // Output the result in an element with id="demo"
-        document.getElementById('demo').innerHTML = days 
-            
-        // If the count down is over, write some text 
-        if (distance >15) {
-            clearInterval(x);
-            ic.style.backgroundColor = 'blue'
-        }
-        }, 1000);
+</script>
+<style>
+    .cen{
+        padding-left: 5em;
     }
-</script>
+    p.orange {
+    width: 1rem;
+    height: 1rem;
+    background-color: orange;
+    margin-left: auto;
+    margin-right: auto;
+    }
 
-</script>
+p.green {
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(76, 212, 35);
+    margin-left: auto;
+    margin-right: auto;
+}
+p.white {
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(255, 255, 255);
+
+    border: solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
