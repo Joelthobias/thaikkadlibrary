@@ -68,20 +68,14 @@
                 </tbody>
             </table>
             <form action="/rend-book" method="post">
-            <input type="text" name="date" hidden value="{{date}}">
-            <input type="text" value="{{thismonthcount}}/{{month}}-{{yer}}" name="id" class="no">
-            <input type="text" value="" id="aaaa" name="mem_id" class="no">
-            <input type="text" value="{{result.bk_id}}" name="bk_id" class="no">
-            <input type="text" value="{{result.au_name}}" name="au_name" class="no">
-            <input type="text" value="{{result.cat}}" name="gen" class="no">
-            <input type="text" value="{{result.lg}}" name="lg" class="no">
-            <input type="text" value="{{result.bk_name}}" name="bk_nm" class="no">
-            <input type="text" id="aaa" class="no" value="" name="dt">            
-            <input type="text" id="aaa" class="no" value="false" name="status">
-            <input type="text" name="mm" class="no" id="mm">
-            <input type="text" name="yy" class="no" id="yy">   
-            <input type="text" name="mn" class="no" id="mn">         
-            <button type="submit" class="col-12 btn btn-primary">Rend</button>
+                <input type="text" name="date" hidden value="">
+                <input type="text" name="id" value="{{thismonthcount}}/{{month}}-{{yer}}" class="no">
+                <input type="text" name="mem_id" value="" id="aaaa" class="no">
+                <input type="text" name="bk_id" value="{{result.bk_id}}" class="no">
+                <input type="text" name="status" value="false" id="aaa" class="no" >
+                <input type="text" name="bkdatestatus" value="false" id="bkdatestatus" class="no" >         
+                
+                <button type="submit" class="col-12 btn btn-primary">Rend</button>
             </form>
             
         </div>

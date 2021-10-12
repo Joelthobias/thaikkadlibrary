@@ -158,9 +158,11 @@ router.get('/view-member/:id',(req,res)=>{
 router.get('/rend-book/:id',async(req,res)=>{
   let id=req.params.id
   let date=new Date()
+  console.log(date);
   let dt=date.getDate()
   let month=date.getMonth() +1
   let yer=date.getFullYear()
+  let dat =date.getTime()
   if(month<=9){
     month='0'+month 
   }
@@ -168,12 +170,13 @@ router.get('/rend-book/:id',async(req,res)=>{
   console.log(thismonthcount);
   bookHelpers.viewbook(id).then((result)=>{
     
-    res.render('books/rend-book',{result,month,yer,thismonthcount,dt})
+    res.render('books/rend-book',{result,month,yer,thismonthcount,dt,})
   })
 
 })
     router.post('/rend-book',(req,res)=>{
       let data=req.body
+      data.date=new Date()
       bookHelpers.rendbook(data).then(()=>{ 
         let loc=data.mem_id
         let ads='/view-member/'+loc
@@ -190,15 +193,24 @@ router.get('/get-member/:id',(req,res)=>{
 })
 router.get('/rend',(req,res)=>{
   memberHelpers.getallrend().then((rend)=>{
-    // bookHelpers.viewbook()
-    // let bg='white'
-    // if(rend.status==='given'){
-    //    bg='red'
-    // }
-    // else{
-    //    bg='green'
-    // }
+    for (let index = 0; index < rend.length; index++) {
+        const element = rend[index];
+        if(element.bkdatestatus='false'){
+          console.log(element.bkdatestatus);
+          let dt=element.date.getTime()
+          let Cdate=new Date().getTime()   
+          let Ddate= Cdate -dt
+          let diff = Math.floor(Ddate / (1000 * 60 * 60 * 24))
+              if(diff >15 ){
+                  element.bkdatestatus=true
+              }
+              console.log(diff);                     
+        }
+    }
     res.render('member/rend',{rend})
+
+
+    
   })
 })
 router.get('/return-book/:id',(req,res)=>{
